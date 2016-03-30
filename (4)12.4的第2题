@@ -19,3 +19,7 @@ copy_thread(struct proc_struct *proc, uintptr_t esp, struct trapframe *tf) {
     proc->context.esp = (uintptr_t)(proc->tf);
 }
 在进程的上下文 eip寄存器中存储返回给父进程的wait。
+子进程状态改变：
+current->state = PROC_ZOMBIE;
+current->exit_code = error_code;
+父进程wait
