@@ -23,3 +23,11 @@ copy_thread(struct proc_struct *proc, uintptr_t esp, struct trapframe *tf) {
 current->state = PROC_ZOMBIE;
 current->exit_code = error_code;
 父进程wait
+proc.c/do_wait()
+found:
+    if (proc == idleproc || proc == initproc) {
+        panic("wait idleproc or initproc.\n");
+    }
+    if (code_store != NULL) {
+        *code_store = proc->exit_code;//设置子进程的退出code
+    }
