@@ -52,7 +52,7 @@ kern_init(void) {
     // user/kernel mode switch test
     //lab1_switch_test();
     cprintf("--*SPOC12---------------------------------------**\n");
-    cprintf("idleproc = %d, initproc = %d\n", idleproc->pid, initproc->pid);
+    cprintf("idleproc = %d, initproc = %d\n", idleproc->pid, initproc->pid); //打印起始的pid 和初始化进程的pid: 结果为0,1
 
     cpu_idle();                 // run idle process
 }
